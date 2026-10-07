@@ -1,7 +1,7 @@
 from params import *
 from qiskit.quantum_info import SparsePauliOp
 import numpy as np
- 
+
 def build_diffusion_hamiltonian(n_qubits, dx, nu):
     """
     Build the FD Laplacian as SparsePauliOp.
@@ -11,7 +11,7 @@ def build_diffusion_hamiltonian(n_qubits, dx, nu):
     """
     n = 2**n_qubits
     c = nu / dx**2           # off-diagonal coefficient
- 
+
     T = np.zeros((n, n))
     for i in range(n):
         T[i, i] = -2.0 * c
@@ -20,7 +20,7 @@ def build_diffusion_hamiltonian(n_qubits, dx, nu):
     # Neumann BC: boundary nodes have only one interior neighbour
     T[0, 0]   = -c
     T[-1, -1] = -c
- 
+
     # Decompose into Pauli basis
     H = SparsePauliOp.from_operator(T)
     H = H.simplify(atol=1e-10)   # drop negligible terms

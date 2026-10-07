@@ -3,7 +3,7 @@
 LCU (Linear Combination of Unitaries) solver for the heat/diffusion sub-step
 of the Cole-Hopf quantum method.
 
-This file implements a segmented LCU solver to approximate exp(T * t) using a 
+segmented LCU solver to approximate exp(T * t) using a 
 truncated Taylor series applied across multiple small time segments. 
 This prevents the LCU 1-norm (A) from exploding and keeps the success 
 probability physically viable.

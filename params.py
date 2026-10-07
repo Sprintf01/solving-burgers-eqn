@@ -10,7 +10,7 @@ x        = np.linspace(0, L, N, endpoint=False)
 
 # time stepping 
 T_FINAL  = 0.3        # total simulation time
-N_STEPS  = 300        # number of timesteps
+N_STEPS  = 300       # number of timesteps
 dt       = T_FINAL / N_STEPS   # = 0.001
 
 

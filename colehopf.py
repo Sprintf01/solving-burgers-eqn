@@ -9,7 +9,7 @@ def cole_hopf_forward(u0, nu=NU):
     """
     integral = cumulative_trapezoid(u0, dx=dx, initial=0.0)
     psi0 = np.exp(-integral / (2.0 * nu))
-    return psi0
+    return psi0 
 
 def solve_heat(psi0, nu=NU):
     psi = psi0.copy()
@@ -36,13 +36,7 @@ def cole_hopf_inverse(psi, nu=NU):
     dlogpsi = np.gradient(logpsi, dx,edge_order=2)
 
     return -2.0*nu*dlogpsi
-#dpsi_dx = np.gradient(psi, dx)
-    #return -2.0 * nu * dpsi_dx / (psi + 1e-14) 
-    #dpsi_dx[1:-1] = (psi[2:] - psi[:-2]) / (2.0 * dx)
-    #dpsi_dx[0]  = (psi[1] - psi[0]) / dx     # one-sided at left
-    #dpsi_dx[-1] = (psi[-1] - psi[-2]) / dx   # one-sided at right
 
-# check 
 psi0     = cole_hopf_forward(u_init(x))
 #print(f"psi0 range: [{psi0.min():.4f}, {psi0.max():.4f}]")
 
